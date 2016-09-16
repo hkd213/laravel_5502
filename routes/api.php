@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+    $api = app('Dingo\Api\Routing\Router');
+    $api->version('v1',['middleware' => 'api.auth'],  function ($api) {
+        $api->resource('user','App\Http\Controllers\ApiController');
+    });
+
