@@ -16,6 +16,6 @@ use Illuminate\Http\Request;
 
     $api = app('Dingo\Api\Routing\Router');
     $api->version('v1',['middleware' => 'api.auth'],  function ($api) {
-        $api->resource('user','App\Http\Controllers\ApiController');
+        $api->resource('post','App\Http\Controllers\ApiController');
     });
 

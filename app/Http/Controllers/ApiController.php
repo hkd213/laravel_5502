@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Note;
 use Illuminate\Routing\Controller as BaseController;
 
 
@@ -15,6 +16,7 @@ class ApiController extends BaseController
 {
     public function index()
     {
-        return 'user';
+        $note = Note::paginate(15);;
+        return $note;
     }
 }

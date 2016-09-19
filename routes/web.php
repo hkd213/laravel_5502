@@ -20,6 +20,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/', 'HomeController@index');
     Route::resource('/note', 'NoteController');
+    Route::get('settings/{id}', 'UserController@edit');
+    Route::post('user/{id}','UserController@update');
 
 });
 
