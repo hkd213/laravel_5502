@@ -31,4 +31,25 @@ class NoteController extends Controller
         return redirect('/');
 
     }
+
+    public function edit($id){
+        $note = Note::find($id);
+        return view('note.edit',['note' => $note]);
+    }
+
+     public function update($id,Request $request){
+         $note = Note::find($id);
+         $img = $note->file_save($request->img);
+         $note->title = $request->title;
+         $note->description = $request->description;
+         $note->img = $img;
+         $note->save();
+         return redirect('/');
+     }
+
+    public function show($id){
+        $note = Note::find($id);
+        $note->delete();
+        return redirect('/');
+    }
 }

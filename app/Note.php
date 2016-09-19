@@ -18,6 +18,7 @@ class Note extends Model
 
     public function file_save($files)
     {
+        if($files){
             //Проверка расширений загружаемых изображений
             if ($files->getMimeType() == "image/gif" || $files->getMimeType() == "image/png" ||
                 $files->getMimeType() == "image/jpg" || $files->getMimeType() == "image/jpeg"
@@ -39,6 +40,9 @@ class Note extends Model
                 return $filename;
             } else
                 return false;
+
+        } else
+            return false;
 
         }
 }

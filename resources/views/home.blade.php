@@ -22,7 +22,7 @@
                                     <tr id="{{$note->id}}">
                                         <td>{{$note->title}}</td>
                                         <td>{{$note->description}}</td>
-                                        <td><a href="">Редактировать</a> <a href="">Удалить</a></td>
+                                        <td><a href="/note/{{$note->id}}/edit">Редактировать</a> <a href="{{route('note.destroy',['id' => $note->id])}}">Удалить</a></td>
 
                                     </tr>
                                 @endforeach
